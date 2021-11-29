@@ -1,0 +1,46 @@
+/* .product-list {
+    display: none !important;
+  } */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 15px;
+}
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: poppinsMedium;
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: poppinsRegular;
+  src: url(../fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: poppinsSemiBold;
+  src: url(../fonts/Poppins-SemiBold.ttf);
+}
+@font-face {
+  font-family: ibmPlexSerifRegular;
+  src: url(../fonts/IBMPlexSerif-Regular.ttf);
+}
+@font-face {
+  font-family: ibmPlexSerifSemiBold;
+  src: url(../fonts/IBMPlexSerif-SemiBold.ttf);
+}
+@font-face {
+  font-family: nunitoSansRegular;
+  src: url(../fonts/NunitoSans-Regular.ttf);
+}
+@font-face {
+  font-family: nunitoSantLight;
+  src: url(../fonts/NunitoSans-Light.ttf);
+}
+@font-face {
+  font-family: nunitoSansSemiBold;
+  src: url(../fonts/NunitoSans-SemiBold.ttf);
+}

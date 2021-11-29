@@ -1,0 +1,31 @@
+{
+  "name": "mevn-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/auth-next": "^5.0.0-1618898588.9655d0e",
+    "@nuxtjs/axios": "^5.13.1",
+    "@nuxtjs/tailwindcss": "^4.0.3",
+    "bootstrap-vue": "^2.21.2",
+    "core-js": "^3.9.1",
+    "nuxt": "^2.15.3",
+    "vee-validate": "^3.4.5",
+    "vue-form-generator": "^2.3.4",
+    "vue-multiselect": "^2.1.6",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "fibers": "^5.0.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.43.5",
+    "sass-loader": "^10.2.0"
+  }
+}

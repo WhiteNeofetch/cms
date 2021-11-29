@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card_header">{{ title }} - {{ price }}$</div>
 
-    <img :src="imageUrl" alt="" />
+    <img :src="require(`~/${imageUrl}`)" alt="" />
     <div class="card_footer">
       <nuxt-link :to="`/products/${_id}`">КЛИКНУТЬ</nuxt-link>
     </div>

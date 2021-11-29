@@ -157,34 +157,7 @@
   </div>
 </template>
 
-<script>
-import { mapGetters, mapActions } from "vuex";
-import MevnHeader from "../components/layouts/Header.vue";
-import { relationMixin } from "@/mixins/relation.mixin";
-export default {
-  name: "App",
-  components: {
-    MevnHeader,
-  },
-  data: () => ({}),
-  async mounted() {
-    await this.fetchCategories();
-    await this.fetchProducs();
-  },
-  methods: {
-    ...mapActions({
-      fetchCategories: "categories/fetchAll",
-      fetchProducs: "products/fetchAll",
-    }),
-  },
-  computed: {
-    ...mapGetters({
-      categories: "categories/items",
-      products: "products/items",
-    }),
-  },
-};
-</script>
+
 
 <style lang="scss">
 // $dark: #303846;

@@ -2,6 +2,6 @@
 
 module.exports = {
     routes: [
-        'categories', 'products', 'payment', 'auth', 'mail', 'comments','test', 'backup', 'backup-injection'
+        'categories', 'products', 'payment', 'auth', 'mail', 'comments','test', 'backup', 'backup-injection','auth-client'
     ],
 };

@@ -1,7 +1,7 @@
 require('dotenv').config()
 const jwt = require('jsonwebtoken')
 const {omit} = require ('ramda')
-const {User, Token} = require ('../model')
+const {UserClient, Token} = require ('../model')
 
 const ACCESS_TOKEN_LIFE = '60m'
 
@@ -44,7 +44,7 @@ module.exports = {
             })
         }
 
-        jwt.verify(refreshToken,process.env.JWT_SECRET_REFRESH,(err, user)=>{
+        jwt.verify(refreshToken,process.env.JWT_SECRET_REFRESH,(err, UserClient)=>{
             if(err){
                 return res.status(403).send({
                     message: 'Действие запрещено'
@@ -52,22 +52,22 @@ module.exports = {
             }
 
             const accessToken = jwt.sign({
-                userId: user._id,
-                email: user.email,
+                UserClientId: UserClient._id,
+                email: UserClient.email,
             }, process.env.JWT_SECRET,{
                 expiresIn: ACCESS_TOKEN_LIFE
             })
             return res.status(200).send({
                 accessToken,
                 refreshToken,
-                email: user.email
+                email: UserClient.email
             })
         })
     },
     async login({body:{email,password}}, res) {
         try {
-            const foundUser = await User.findOne({email})
-            if(!foundUser){
+            const foundUserClient = await UserClient.findOne({email})
+            if(!foundUserClient){
                 return res.status(403).send({
                     message: 'Извините, но логин или пароль не подходят!',
                     err
@@ -76,7 +76,7 @@ module.exports = {
             //мы расшифровываем из базы данных
             //сравниваем
             //TO_DO
-            const isPasswordCorrect = foundUser.password === password
+            const isPasswordCorrect = foundUserClient.password === password
             if (!isPasswordCorrect){
                 return res.status(403).send({
                     message: 'Извините, но логин или пароль не подходят!',
@@ -84,19 +84,19 @@ module.exports = {
                 })
             }
             const accessToken = jwt.sign({
-                userId: foundUser._id,
-                email: foundUser.email,
+                UserClientId: foundUserClient._id,
+                email: foundUserClient.email,
             }, process.env.JWT_SECRET,{
                 expiresIn: ACCESS_TOKEN_LIFE
             })
 
             const refreshToken = jwt.sign({
-                userId: foundUser._id,
-                email: foundUser.email,
+                UserClientId: foundUserClient._id,
+                email: foundUserClient.email,
             }, process.env.JWT_SECRET_REFRESH)
 
             const foundToken = await Token.findOne({
-                user: foundUser._id
+                UserClient: foundUserClient._id
             })
 
             if(foundToken){
@@ -104,11 +104,11 @@ module.exports = {
                 return  res.status(200).send({
                     accessToken,
                     refreshToken,
-                    email: foundUser.email,
+                    email: foundUserClient.email,
                 })
             }
 
-            const item = new Token({token:refreshToken, user: foundUser._id})
+            const item = new Token({token:refreshToken, UserClient: foundUserClient._id})
             await item.save()
 
             return  res.status(200).send('login')
@@ -121,15 +121,15 @@ module.exports = {
     },
     async signUP({body: {email,password} }, res){
         try {
-            const foundUser = await User.findOne({email})
-            if(foundUser){
+            const foundUserClient = await UserClient.findOne({email})
+            if(foundUserClient){
                 return res.status(403).send({
                     message: 'Данный емейл занят',
                     err
                 })
             }
-            const createdUser = await new User({email, password})
-            await createdUser.save()
+            const createdUserClient = await new UserClient({email, password})
+            await createdUserClient.save()
 
 
             return  res.status(200).send({

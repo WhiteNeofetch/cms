@@ -12,3 +12,4 @@ const relations = {
 module.exports = {
     ...genericCrud(Product,relations)
 };
+

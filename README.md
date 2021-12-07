@@ -1,62 +1,60 @@
 # cms
 
+<br>
+#api <br>
+npm i <br>
+//установка зависимостей<br>
 
-#api
-npm i 
-//установка зависимостей
+npm run dev<br>
+//запуск для dev режима<br>
 
-npm run dev
-//запуск для dev режима
+npm run start<br>
+//запуск для prod режима<br>
 
-npm run start
-//запуск для prod режима
+.env<br>
 
-.env
+MONGO_URI<br>
+JWT_SECRET<br>
+JWT_SECRET_REFRESH <br>
+PORT<br>
+APP_IP<br>
 
-MONGO_URI
-JWT_SECRET
-JWT_SECRET_REFRESH 
-PORT
-APP_IP
+#admin<br>
 
-#admin
+npm i <br>
+//установка зависимостей<br>
 
-npm i 
-//установка зависимостей
+npm run dev<br>
+//запуск для dev режима<br>
 
-npm run dev
-//запуск для dev режима
+npm run build<br>
+//build admin<br>
 
-npm run build
-//build admin
+npm run build<br>
+//запуск для prod режима<br>
 
-npm run build
-//запуск для prod режима
+.env<br>
 
-.env
+NUXT_APP_BASE_URL=http://localhost:57770/api/v1<br>
+NUXT_APP_HOST<br>
+NUXT_APP_PORT<br>
 
-NUXT_APP_BASE_URL=http://localhost:57770/api/v1
+#client<br>
 
-NUXT_APP_HOST
-NUXT_APP_PORT
+npm i <br>
+//установка зависимостей<br>
 
-#client
+npm run dev<br>
+//запуск для dev режима<br>
 
-npm i 
-//установка зависимостей
+npm run build<br>
+//build admin<br>
 
-npm run dev
-//запуск для dev режима
+npm run build<br>
+//запуск для prod режима<br>
 
-npm run build
-//build admin
+.env<br>
 
-npm run build
-//запуск для prod режима
-
-.env
-
-NUXT_APP_BASE_URL=http://localhost:57770/api/v1
-
-NUXT_APP_HOST
-NUXT_APP_PORT
+NUXT_APP_BASE_URL=http://localhost:57770/api/v1<br>
+NUXT_APP_HOST<br>
+NUXT_APP_PORT<br>
